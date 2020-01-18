@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=Domain/lcd_disp.c Domain/PracticeBox.c Domain/sensor.c main.c AppLogic/menu.c AppLogic/stop.c AppLogic/wash.c
+SOURCEFILES_QUOTED_IF_SPACED=Domain/lcd_disp.c Domain/PracticeBox.c Domain/sensor.c main.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Domain/lcd_disp.p1 ${OBJECTDIR}/Domain/PracticeBox.p1 ${OBJECTDIR}/Domain/sensor.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/AppLogic/menu.p1 ${OBJECTDIR}/AppLogic/stop.p1 ${OBJECTDIR}/AppLogic/wash.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/Domain/lcd_disp.p1.d ${OBJECTDIR}/Domain/PracticeBox.p1.d ${OBJECTDIR}/Domain/sensor.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/AppLogic/menu.p1.d ${OBJECTDIR}/AppLogic/stop.p1.d ${OBJECTDIR}/AppLogic/wash.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Domain/lcd_disp.p1 ${OBJECTDIR}/Domain/PracticeBox.p1 ${OBJECTDIR}/Domain/sensor.p1 ${OBJECTDIR}/main.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/Domain/lcd_disp.p1.d ${OBJECTDIR}/Domain/PracticeBox.p1.d ${OBJECTDIR}/Domain/sensor.p1.d ${OBJECTDIR}/main.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/Domain/lcd_disp.p1 ${OBJECTDIR}/Domain/PracticeBox.p1 ${OBJECTDIR}/Domain/sensor.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/AppLogic/menu.p1 ${OBJECTDIR}/AppLogic/stop.p1 ${OBJECTDIR}/AppLogic/wash.p1
+OBJECTFILES=${OBJECTDIR}/Domain/lcd_disp.p1 ${OBJECTDIR}/Domain/PracticeBox.p1 ${OBJECTDIR}/Domain/sensor.p1 ${OBJECTDIR}/main.p1
 
 # Source Files
-SOURCEFILES=Domain/lcd_disp.c Domain/PracticeBox.c Domain/sensor.c main.c AppLogic/menu.c AppLogic/stop.c AppLogic/wash.c
+SOURCEFILES=Domain/lcd_disp.c Domain/PracticeBox.c Domain/sensor.c main.c
 
 
 
@@ -126,30 +126,6 @@ ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/AppLogic/menu.p1: AppLogic/menu.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/AppLogic" 
-	@${RM} ${OBJECTDIR}/AppLogic/menu.p1.d 
-	@${RM} ${OBJECTDIR}/AppLogic/menu.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/AppLogic/menu.p1 AppLogic/menu.c 
-	@-${MV} ${OBJECTDIR}/AppLogic/menu.d ${OBJECTDIR}/AppLogic/menu.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/AppLogic/menu.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/AppLogic/stop.p1: AppLogic/stop.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/AppLogic" 
-	@${RM} ${OBJECTDIR}/AppLogic/stop.p1.d 
-	@${RM} ${OBJECTDIR}/AppLogic/stop.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/AppLogic/stop.p1 AppLogic/stop.c 
-	@-${MV} ${OBJECTDIR}/AppLogic/stop.d ${OBJECTDIR}/AppLogic/stop.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/AppLogic/stop.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/AppLogic/wash.p1: AppLogic/wash.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/AppLogic" 
-	@${RM} ${OBJECTDIR}/AppLogic/wash.p1.d 
-	@${RM} ${OBJECTDIR}/AppLogic/wash.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/AppLogic/wash.p1 AppLogic/wash.c 
-	@-${MV} ${OBJECTDIR}/AppLogic/wash.d ${OBJECTDIR}/AppLogic/wash.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/AppLogic/wash.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 else
 ${OBJECTDIR}/Domain/lcd_disp.p1: Domain/lcd_disp.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Domain" 
@@ -182,30 +158,6 @@ ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/main.p1 main.c 
 	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/AppLogic/menu.p1: AppLogic/menu.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/AppLogic" 
-	@${RM} ${OBJECTDIR}/AppLogic/menu.p1.d 
-	@${RM} ${OBJECTDIR}/AppLogic/menu.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/AppLogic/menu.p1 AppLogic/menu.c 
-	@-${MV} ${OBJECTDIR}/AppLogic/menu.d ${OBJECTDIR}/AppLogic/menu.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/AppLogic/menu.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/AppLogic/stop.p1: AppLogic/stop.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/AppLogic" 
-	@${RM} ${OBJECTDIR}/AppLogic/stop.p1.d 
-	@${RM} ${OBJECTDIR}/AppLogic/stop.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/AppLogic/stop.p1 AppLogic/stop.c 
-	@-${MV} ${OBJECTDIR}/AppLogic/stop.d ${OBJECTDIR}/AppLogic/stop.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/AppLogic/stop.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/AppLogic/wash.p1: AppLogic/wash.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/AppLogic" 
-	@${RM} ${OBJECTDIR}/AppLogic/wash.p1.d 
-	@${RM} ${OBJECTDIR}/AppLogic/wash.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/AppLogic/wash.p1 AppLogic/wash.c 
-	@-${MV} ${OBJECTDIR}/AppLogic/wash.d ${OBJECTDIR}/AppLogic/wash.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/AppLogic/wash.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

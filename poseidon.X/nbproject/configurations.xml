@@ -26,11 +26,6 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <logicalFolder name="f2" displayName="AppLogic" projectFiles="true">
-        <itemPath>AppLogic/menu.c</itemPath>
-        <itemPath>AppLogic/stop.c</itemPath>
-        <itemPath>AppLogic/wash.c</itemPath>
-      </logicalFolder>
       <logicalFolder name="f1" displayName="Domain" projectFiles="true">
         <itemPath>Domain/lcd_disp.c</itemPath>
         <itemPath>Domain/PracticeBox.c</itemPath>
