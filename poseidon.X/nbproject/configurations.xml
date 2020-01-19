@@ -13,10 +13,14 @@
         <itemPath>Domain/lcd_disp.h</itemPath>
         <itemPath>Domain/PracticeBox.h</itemPath>
         <itemPath>Domain/sensor.h</itemPath>
+        <itemPath>Domain/switch.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="Model" projectFiles="true">
-        <itemPath>Model/course.h</itemPath>
         <itemPath>Model/HardWareState.h</itemPath>
+        <itemPath>Model/Switch.h</itemPath>
+        <itemPath>Model/Flags.h</itemPath>
+        <itemPath>Model/Course.h</itemPath>
+        <itemPath>Model/Process.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -35,6 +39,7 @@
         <itemPath>Domain/lcd_disp.c</itemPath>
         <itemPath>Domain/PracticeBox.c</itemPath>
         <itemPath>Domain/sensor.c</itemPath>
+        <itemPath>Domain/switch.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
     </logicalFolder>

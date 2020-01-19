@@ -1,5 +1,5 @@
-#ifndef FLAGS_H
-#define FLAGS_H
+#ifndef HRAD_WARE_STATE_H
+#define HRAD_WARE_STATE_H
 typedef struct {
   int POWER_SW;       // ON 1 OFF 0
   int START_SW;       // ON 1 OFF 0
