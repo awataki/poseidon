@@ -15,8 +15,8 @@
         <itemPath>Domain/sensor.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="Model" projectFiles="true">
-        <itemPath>Model/flags.h</itemPath>
         <itemPath>Model/course.h</itemPath>
+        <itemPath>Model/HardWareState.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"

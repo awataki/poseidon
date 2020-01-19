@@ -7,12 +7,9 @@ typedef struct {
   int MENU_SW;        // ON 1 OFF 0
   int PROCCESS_SW;    // ON 1 OFF 0
   int RESERVATION_SW; // ON 1 OFF 0
-  int TUB_STATE;      // 洗濯槽 moving 1 stop 0
-  int WIND_STATE;     // 回転羽 moving 1 stop 0
-  int SENSOR_STATE;   //センサー
-  int SENSOR2_STATE;  //センサー
-  int _AT; // 洗い
-// すすぎ
-// 脱水
-} _flags;
+  int TUB;      // 洗濯槽 moving 1 stop 0
+  int WIND;     // 回転羽 moving 1 stop 0
+  int WATER_SENSOR;   //水位センサー ok 1 ng 0
+  int LAUNDRY_SENSOR;  //洗濯物センサー ok 1 ng 0
+} hard_ware_states;
 #endif
