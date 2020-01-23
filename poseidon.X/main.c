@@ -65,6 +65,7 @@ int main(int argc, char** argv) {
     init_hardwares();
     init_flag(&f);
     f.power = 1;
+    print_menu(&f);
     while(1){
         //update hardwares
         update_menu_hardware_status(&hw);
