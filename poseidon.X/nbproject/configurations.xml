@@ -41,6 +41,9 @@
         <itemPath>Domain/sensor.c</itemPath>
         <itemPath>Domain/switch.c</itemPath>
       </logicalFolder>
+      <logicalFolder name="f3" displayName="Model" projectFiles="true">
+        <itemPath>Model/Flags.c</itemPath>
+      </logicalFolder>
       <itemPath>main.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
