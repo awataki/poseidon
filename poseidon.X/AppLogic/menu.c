@@ -14,9 +14,6 @@
 #define RESVX 10
 #define RESVY 3
 
-void print_menu(flags * f);
-void print_resv(flags *f);
-
 void update_menu_hardware_status(hard_ware_states *hw){
     (*hw).POWER_SW = get_switch_state(POWER);
     (*hw).PROCCESS_SW = get_switch_state(PROCESS);
