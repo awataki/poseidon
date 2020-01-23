@@ -13,10 +13,14 @@
         <itemPath>Domain/lcd_disp.h</itemPath>
         <itemPath>Domain/PracticeBox.h</itemPath>
         <itemPath>Domain/sensor.h</itemPath>
+        <itemPath>Domain/switch.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="Model" projectFiles="true">
-        <itemPath>Model/course.h</itemPath>
         <itemPath>Model/HardWareState.h</itemPath>
+        <itemPath>Model/Switch.h</itemPath>
+        <itemPath>Model/Flags.h</itemPath>
+        <itemPath>Model/Course.h</itemPath>
+        <itemPath>Model/Process.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -26,10 +30,19 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <logicalFolder name="f2" displayName="AppLogic" projectFiles="true">
+        <itemPath>AppLogic/menu.c</itemPath>
+        <itemPath>AppLogic/stop.c</itemPath>
+        <itemPath>AppLogic/wash.c</itemPath>
+      </logicalFolder>
       <logicalFolder name="f1" displayName="Domain" projectFiles="true">
         <itemPath>Domain/lcd_disp.c</itemPath>
         <itemPath>Domain/PracticeBox.c</itemPath>
         <itemPath>Domain/sensor.c</itemPath>
+        <itemPath>Domain/switch.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="Model" projectFiles="true">
+        <itemPath>Model/Flags.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
     </logicalFolder>
