@@ -7,11 +7,11 @@
 #include "../AppLogic/wash.h"
 #include "../Domain/lcd_disp.h"
 
-#define COURSEX 12
+#define COURSEX 11
 #define COURSEY 1
-#define PROCESSX 12
+#define PROCESSX 13
 #define PROCESSY 2
-#define RESVX 10
+#define RESVX 9
 #define RESVY 3
 
 void update_menu_hardware_status(hard_ware_states *hw){
@@ -25,10 +25,10 @@ void update_menu_hardware_status(hard_ware_states *hw){
 
 void next_menu(flags *f){
     int now = (*f).selecting_course;
-    char s[3];
-    ++now;
-    if(now == 3){
+    if(now == 2){
         now = 0;
+    }else{
+        ++now;
     }
     switch (now){
         case NOMAL:
@@ -50,22 +50,22 @@ void next_menu(flags *f){
             (*f).spin_time = 11;
             break;
     }
-    print_menu(f);
     (*f).selecting_course = now;
+    print_menu(f);
 };
 
 void next_process(flags *f){
     int now = (*f).selecting_process;
-    if(now == S){
-        now = WRS;
+    if(now == 3){
+        now = 0;
     }else{
         ++now;
     }
-    (*f).selecting_process = now;
     
-            (*f).progress_time[0] = 0; // W
-            (*f).progress_time[1] = 0; // R
-            (*f).progress_time[2] = 0; // s
+    (*f).progress_time[0] = 0; // W
+    (*f).progress_time[1] = 0; // R
+    (*f).progress_time[2] = 0; // s
+
     switch(now){
         case WRS:
             (*f).progress_time[0] = (*f).wash_time;
@@ -88,6 +88,8 @@ void next_process(flags *f){
             (*f).progress_time[2] = (*f).spin_time;
             break;
     }
+    (*f).selecting_process = now;
+    print_menu(f);
 };
 
 void reservation_wash(flags *f){
@@ -99,17 +101,23 @@ void reservation_wash(flags *f){
     print_resv(f);
 };
 
-void print_menu(flags * f){
+void print_menu(flags *f){
+    int c = (*f).selecting_course;
+    int p = (*f).selecting_process;
     char s1[] = "Course Sel:   ";
     char s2[] = "Progress Sel:     ";
+    char s3[] = "              ";
     locate(0,1);
     write_str(s1);
     locate(0,2);
     write_str(s2);
+    locate(0,3);
+    write_str(s3);
+//    disp_number((*f).selecting_process,6,0);
     char cs[3];
     char ps[5];
     locate(COURSEX,COURSEY);
-    switch((*f).selecting_course){
+    switch(c){
         case NOMAL:
             strcpy(cs,"Nor");
             break;
@@ -122,9 +130,9 @@ void print_menu(flags * f){
             
     }
     write_str(cs);
-    
+
     locate(PROCESSX,PROCESSY);
-    switch((*f).selecting_process){
+    switch(p){
         case WRS:
             strcpy(ps,"W>R>S");
             break;
@@ -137,6 +145,8 @@ void print_menu(flags * f){
         case S:
             strcpy(ps,"S");
             break;
+        default:
+            strcpy(ps,"err");
     }
     write_str(ps);
 }

@@ -1,5 +1,6 @@
 #include "wash.h"
 #include "../Domain/PracticeBox.h"
+#include "../Domain/lcd_disp.h"
 
 int ctoi(char c);
 
@@ -16,6 +17,13 @@ void start_wash(hard_ware_states *hw,flags *f){
     // move wind
     move_Box_Motor(2,1);
     (*hw).WIND = 1;
+    (*f).total_time = (*f).progress_time[0] + (*f).progress_time[1] + (*f).progress_time[2]; 
+    char s[] = "Now Wash        ";
+    char s2[] = "Remain Time:  min ";
+    locate(0,1);
+    write_str(s);
+    locate(0,2);
+    write_str(s2);
     return;
 };
 

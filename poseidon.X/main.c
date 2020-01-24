@@ -35,11 +35,11 @@
 #pragma config BOR4V = BOR40V
 
 #define SEC 100
-#define MIN 60*SEC
+#define MIN SEC*60
 #define _XTAL_FREQ 800000
 
 
-#define SEC_MAX     32  /* 0.6107usx256x64=10ms */
+#define SEC_MAX     16  /* 0.6107usx256x64=10ms */
 int     sec=0;
 int     t_int_flag=0;
 hard_ware_states hw;
@@ -48,10 +48,12 @@ flags f;
 #pragma INTERRUPT rtcc_isr
 
 static void __interrupt () rtcc_isr( void ) {
-        sec ++;
-    if( sec == SEC_MAX ){
+    T0IF=0;
+    ++sec;
+    
+    if (sec==SEC_MAX){
         sec = 0;
-        t_int_flag ++;
+        t_int_flag++;
     }
 }
 
@@ -81,6 +83,10 @@ static void pic_init() {
 
         /* Set Port D config */
         TRISD = 0xC0;       // bit 0-5 OUT, bit6-7 IN
+        timer0_init();
+    T0IF=0;// clear timer0 Interupt Flag
+    T0IE=1;// Enable interrupt timer0
+    GIE=1;// Global interrupt
 }
 
 void init_hardwares(){
@@ -96,6 +102,7 @@ void init_hardware_states(hard_ware_states *hw){
 }
 
 int main(int argc, char** argv) {
+    
     int remain = 0;
     pic_init();
     init_hardwares();
@@ -106,14 +113,12 @@ int main(int argc, char** argv) {
     char s[] = "Power ON";
     write_str(s);
     print_menu(&f);
+
     while(1){
         //update hardwares
         update_menu_hardware_status(&hw);
         update_stop_hardware_status(&hw);
         update_wash_hardware_status(&hw);
-        
-        
-        disp_number(hw.MENU_SW,0,0);
         // メニュー送り
         if(f.power && hw.MENU_SW && !f.is_washing){
             next_menu(&f);
@@ -129,56 +134,61 @@ int main(int argc, char** argv) {
         // 洗濯スタート
         if(f.power && hw.START_SW && !f.is_washing){
             start_wash(&hw,&f);
-            f.reservation_at = 0;
+            remain = f.total_time;
             t_int_flag = 0;
             __delay_ms(300); 
         }
         
         // 洗濯ストップ
-        if(f.power && hw.START_SW && f.is_washing){
+        if(f.power && hw.STOP_SW && f.is_washing){
             stop_wash(&hw,&f);
             f.in_progress = 0;
             __delay_ms(300); 
+             print_menu(&f);
         }
         
         // 予約
         if(f.power && hw.RESERVATION_SW && !f.is_washing){
             reservation_wash(&f);
+            remain = f.reservation_at;
             t_int_flag = 0;
             __delay_ms(300); 
         }
         
-        // 残り時間の計算
-        if (f.reservation_at != 0 && remain != (f.reservation_at * 60) - (t_int_flag/MIN)){
-            remain = (f.reservation_at * 60) - (t_int_flag/MIN);
-            // 更新
-            locate(8,4);
-            char t = '0' + remain/60;
-            write_char(t);
-        }else if (f.is_washing && remain != f.total_time - (t_int_flag/MIN)){
-            remain = f.total_time - (t_int_flag / MIN);
-            // 更新
-            locate(12,2);
-            char time[2];
-            char ten = '0' + remain/10;
-            char one = '0' + remain%10;
-            time[0] = ten;
-            time[1] = one;
-            write_str(time);
-        }
-        
-        // 予約時間が来たらスタート
-        if( remain < 0 && f.reservation_at != 0){
+        if (!f.is_washing && f.reservation_at != 0){
+            remain = f.reservation_at  - (t_int_flag/6);
+            disp_number(remain,9,3);
+            if (remain <= 0){
+                remain = 0;
+                f.reservation_at = 0;
+                
             start_wash(&hw,&f);
+            remain = f.total_time;
+            t_int_flag = 0;
+            __delay_ms(300); 
+            }
+        }
+
+        // 残り時間の計算
+        if ( remain != 0 && f.is_washing){
+            remain =  f.total_time - t_int_flag;
+            disp_number(remain/10,12,2);
+            disp_number(remain%10,13,2);
         }
         
         // 終了
-        if (f.is_washing && remain >= f.total_time){
+        if (f.is_washing && remain <= 0){
              stop_wash(&hw,&f);
-            f.in_progress = 0;
+             int i =0;
+             while (i <= 5){
             buzzer(SOUND_ON);
-            __delay_ms(100);
+            __delay_ms(500);
             buzzer(SOUND_OFF);
+            __delay_ms(300);
+            i++;
+             }
+             __delay_ms(2000);
+             print_menu(&f);
         }
         
         // 電源
@@ -187,13 +197,13 @@ int main(int argc, char** argv) {
                 stop_wash(&hw,&f);
                 f.power = 0;
                 locate(0,0);
-                char msg[] = "POWER OFF";
+                char msg[] = "Power OFF";
                 write_str(msg);
                 __delay_ms(300); 
             }else{
                 f.power = 1;
                 locate(0,0);
-                char msg[] = "POWER ON ";
+                char msg[] = "Power ON ";
                 write_str(msg);
                 __delay_ms(300); 
             }
@@ -201,5 +211,5 @@ int main(int argc, char** argv) {
     }
     
     return 0;
-}
+};
 
