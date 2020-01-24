@@ -12,14 +12,14 @@
 int get_switch_state(int no){
     switch(no){
         case POWER:
-            if((PORTB & 0x80) == '1'){
+            if((PORTB& 0x80) == 0){
                 return 1;
             }else{
                 return 0;
             }
             break;
         case STOP:
-            if((PORTB & 0x20) == '1'){
+            if((PORTB& 0x20) == 0){
                 return 1;
             }else{
                 return 0;
@@ -27,21 +27,21 @@ int get_switch_state(int no){
             break;
         case START:
             
-            if((PORTB & 0x10) == '1'){
+            if((PORTB& 0x10) == 0){
                 return 1;
             }else{
                 return 0;
             }
             break;
         case RESERVATION:
-            if((PORTB & 0x08) == '1'){
+            if((PORTB& 0x08) == 0){
                 return 1;
             }else{
                 return 0;
             }
             break;
         case PROCESS:
-            if((PORTB & 0x04) == '1'){
+            if((PORTB& 0x04) == 0){
                 return 1;
             }else{
                 return 0;
@@ -49,7 +49,7 @@ int get_switch_state(int no){
             break;
         case COURSE:
             
-            if((PORTB & 0x02) == '1'){
+            if((PORTB& 0x02) == 0){
                 return 1;
             }else{
                 return 0;
