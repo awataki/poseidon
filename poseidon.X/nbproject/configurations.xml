@@ -14,6 +14,7 @@
         <itemPath>Domain/PracticeBox.h</itemPath>
         <itemPath>Domain/sensor.h</itemPath>
         <itemPath>Domain/switch.h</itemPath>
+        <itemPath>Domain/buzzer.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="Model" projectFiles="true">
         <itemPath>Model/HardWareState.h</itemPath>
@@ -40,6 +41,7 @@
         <itemPath>Domain/PracticeBox.c</itemPath>
         <itemPath>Domain/sensor.c</itemPath>
         <itemPath>Domain/switch.c</itemPath>
+        <itemPath>Domain/buzzer.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="Model" projectFiles="true">
         <itemPath>Model/Flags.c</itemPath>

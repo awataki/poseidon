@@ -10,6 +10,7 @@
 #include <pic.h>
 #include <xc.h>
 
+#include "Domain/buzzer.h"
 #include "Domain/PracticeBox.h"
 #include "Domain/lcd_disp.h"
 #include "Domain/sensor.h"
@@ -134,6 +135,9 @@ int main(int argc, char** argv) {
         if (f.is_washing && remain >= f.total_time){
              stop_wash(&hw,&f);
             f.in_progress = 0;
+            buzzer(SOUND_ON);
+            __delay_ms(100);
+            buzzer(SOUND_OFF);
         }
         
         // 電源
